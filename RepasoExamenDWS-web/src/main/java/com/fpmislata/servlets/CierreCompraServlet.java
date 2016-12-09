@@ -42,8 +42,12 @@ public class CierreCompraServlet extends HttpServlet {
         
         Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
         Hashtable<Integer, ProductoComprado> compra = (Hashtable<Integer, ProductoComprado>) request.getSession().getAttribute("compra");
-        Factura factura = new Factura();
         
+        Factura factura = new Factura();
+        factura.setUsuario(usuario);
+        factura.setListaCompra(compra);
+        
+        factura = facturaService.add(factura);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
