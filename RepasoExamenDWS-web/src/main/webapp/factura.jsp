@@ -22,7 +22,7 @@
         
         <% 
             Factura factura = (Factura) request.getAttribute("factura");
-            
+            float total = 0;
         %>
         Nombre: <%=factura.getUsuario().getNombre()%>
         Apellidos: <%factura.getUsuario().getApellidos()%>
@@ -49,7 +49,7 @@
                     float precio = producto.getPrecio();
                     int cantidad = listaProductos.get(i).getCantidad();
                     float subtotal = precio + cantidad;
-                    
+                    total = total + subtotal;
                 %>
                 
                 <tr>
@@ -61,5 +61,6 @@
                 </tr>
                 <% } %>
 	</table>
+        <h4>TOTAL: <%=total%></h4>
 </body>
 </html>
