@@ -13,6 +13,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Hashtable;
 import javax.ejb.EJB;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -48,6 +49,10 @@ public class CierreCompraServlet extends HttpServlet {
         factura.setListaCompra(compra);
         
         factura = facturaService.add(factura);
+        
+        request.setAttribute("factura", factura);
+        RequestDispatcher rd = request.getRequestDispatcher("factura.jsp");
+        rd.forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
