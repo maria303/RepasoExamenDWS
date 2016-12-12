@@ -25,7 +25,7 @@
             float total = 0;
         %>
         Nombre: <%=factura.getUsuario().getNombre()%>
-        Apellidos: <%factura.getUsuario().getApellidos()%>
+        Apellidos: <%=factura.getUsuario().getApellidos()%>
 	
 	<br/>
 	<br/>
